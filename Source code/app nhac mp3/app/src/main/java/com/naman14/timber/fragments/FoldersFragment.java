@@ -29,9 +29,7 @@ import com.naman14.timber.widgets.FastScroller;
 
 import java.io.File;
 
-/**
- * Created by nv95 on 10.11.16.
- */
+
 
 public class FoldersFragment extends Fragment implements StorageSelectDialog.OnDirSelectListener {
 

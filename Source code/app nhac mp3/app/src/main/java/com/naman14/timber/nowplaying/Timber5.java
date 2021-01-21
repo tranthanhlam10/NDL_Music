@@ -22,9 +22,7 @@ import com.naman14.timber.utils.ImageUtils;
 
 import net.steamcrafted.materialiconlib.MaterialDrawableBuilder;
 
-/**
- * Created by naman on 22/02/17.
- */
+
 
 public class Timber5 extends BaseNowplayingFragment {
 

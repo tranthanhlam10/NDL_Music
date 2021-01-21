@@ -1,16 +1,4 @@
-/*
- * Copyright (C) 2015 Naman Dwivedi
- *
- * Licensed under the GNU General Public License v3
- *
- * This is free software: you can redistribute it and/or modify it
- * under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
- *
- * This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- * See the GNU General Public License for more details.
- */
+
 
 package com.naman14.timber.activities;
 
@@ -285,9 +273,6 @@ public class MainActivity extends BaseActivity implements ATEActivityThemeCustom
 
     private void setupNavigationIcons(NavigationView navigationView) {
 
-        //material-icon-lib currently doesn't work with navigationview of design support library 22.2.0+
-        //set icons manually for now
-        //https://github.com/code-mc/material-icon-lib/issues/15
 
         if (!isDarkTheme) {
             navigationView.getMenu().findItem(R.id.nav_library).setIcon(R.drawable.library_music);
@@ -295,18 +280,12 @@ public class MainActivity extends BaseActivity implements ATEActivityThemeCustom
             navigationView.getMenu().findItem(R.id.nav_queue).setIcon(R.drawable.music_note);
             navigationView.getMenu().findItem(R.id.nav_folders).setIcon(R.drawable.ic_folder_open_black_24dp);
             navigationView.getMenu().findItem(R.id.nav_nowplaying).setIcon(R.drawable.bookmark_music);
-            navigationView.getMenu().findItem(R.id.nav_settings).setIcon(R.drawable.settings);
-            navigationView.getMenu().findItem(R.id.nav_about).setIcon(R.drawable.information);
-            navigationView.getMenu().findItem(R.id.nav_donate).setIcon(R.drawable.payment_black);
         } else {
             navigationView.getMenu().findItem(R.id.nav_library).setIcon(R.drawable.library_music_white);
             navigationView.getMenu().findItem(R.id.nav_playlists).setIcon(R.drawable.playlist_play_white);
             navigationView.getMenu().findItem(R.id.nav_queue).setIcon(R.drawable.music_note_white);
             navigationView.getMenu().findItem(R.id.nav_folders).setIcon(R.drawable.ic_folder_open_white_24dp);
             navigationView.getMenu().findItem(R.id.nav_nowplaying).setIcon(R.drawable.bookmark_music_white);
-            navigationView.getMenu().findItem(R.id.nav_settings).setIcon(R.drawable.settings_white);
-            navigationView.getMenu().findItem(R.id.nav_about).setIcon(R.drawable.information_white);
-            navigationView.getMenu().findItem(R.id.nav_donate).setIcon(R.drawable.payment_white);
         }
 
         try {
@@ -342,23 +321,7 @@ public class MainActivity extends BaseActivity implements ATEActivityThemeCustom
                 runnable = navigateQueue;
 
                 break;
-            case R.id.nav_settings:
-                NavigationUtils.navigateToSettings(MainActivity.this);
-                break;
-            case R.id.nav_about:
-                mDrawerLayout.closeDrawers();
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        Helpers.showAbout(MainActivity.this);
-                    }
-                }, 350);
 
-                break;
-            case R.id.nav_donate:
-                startActivity(new Intent(MainActivity.this, DonateActivity.class));
-                break;
         }
 
         if (runnable != null) {

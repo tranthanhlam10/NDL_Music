@@ -18,13 +18,13 @@
         android:name=".TimberApp"
         android:allowBackup="false"
         android:icon="@mipmap/music_icon"
-        android:label="Timber${appNameSuffix}"
+        android:label="LDN Music"
         android:theme="@style/AppTheme.FullScreen.Light"
         tools:replace="android:allowBackup, android:label">
 
         <activity
             android:name=".activities.MainActivity"
-            android:label="WorldMusic"
+            android:label="LDN Music"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -84,7 +84,7 @@
             android:name=".activities.NowPlayingActivity"
             android:theme="@style/AppTheme.FullScreen.Light" />
 
-        <activity android:name=".activities.DonateActivity"/>
+<!--        <activity android:name=".activities.DonateActivity"/>-->
 
         <receiver android:name=".helpers.MediaButtonIntentReceiver">
             <intent-filter>

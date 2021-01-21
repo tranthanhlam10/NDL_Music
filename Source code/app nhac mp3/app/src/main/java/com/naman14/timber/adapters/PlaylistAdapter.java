@@ -31,9 +31,6 @@ import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListene
 import java.util.List;
 import java.util.Random;
 
-/**
- * Created by naman on 31/10/16.
- */
 public class PlaylistAdapter extends RecyclerView.Adapter<PlaylistAdapter.ItemHolder> {
 
     private List<Playlist> arraylist;

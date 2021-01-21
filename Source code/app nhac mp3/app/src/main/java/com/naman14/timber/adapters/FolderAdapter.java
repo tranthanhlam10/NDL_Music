@@ -32,10 +32,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by nv95 on 10.11.16.
- */
-
 public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ItemHolder> implements BubbleTextGetter {
 
     @NonNull

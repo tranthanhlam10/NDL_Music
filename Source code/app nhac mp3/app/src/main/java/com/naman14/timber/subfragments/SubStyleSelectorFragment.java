@@ -1,16 +1,4 @@
-/*
- * Copyright (C) 2015 Naman Dwivedi
- *
- * Licensed under the GNU General Public License v3
- *
- * This is free software: you can redistribute it and/or modify it
- * under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
- *
- * This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- * See the GNU General Public License for more details.
- */
+
 
 package com.naman14.timber.subfragments;
 
@@ -31,7 +19,7 @@ import android.widget.TextView;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.naman14.timber.R;
-import com.naman14.timber.activities.DonateActivity;
+//import com.naman14.timber.activities.DonateActivity;
 import com.naman14.timber.utils.Constants;
 import com.naman14.timber.utils.NavigationUtils;
 import com.naman14.timber.utils.PreferencesUtility;
@@ -74,7 +62,7 @@ public class SubStyleSelectorFragment extends Fragment {
                     if (isUnlocked()) {
                         setPreferences();
                     } else {
-                        showPurchaseDialog();
+                        //showPurchaseDialog();
                     }
                 } else
                     setPreferences();
@@ -130,30 +118,30 @@ public class SubStyleSelectorFragment extends Fragment {
             foreground.setVisibility(View.GONE);
         }
     }
-    private void showPurchaseDialog() {
-        MaterialDialog dialog = new MaterialDialog.Builder(getActivity())
-                .title("Purchase")
-                .content("This now playing style is available after a one time purchase of any amount. Support development and unlock this style?")
-                .positiveText("Support development")
-                .neutralText("Restore purchases")
-                .onPositive(new MaterialDialog.SingleButtonCallback() {
-                    @Override
-                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                        startActivity(new Intent(getActivity(), DonateActivity.class));
-                        dialog.dismiss();
-                    }
-                }).onNeutral(new MaterialDialog.SingleButtonCallback() {
-                    @Override
-                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                        Intent intent = new Intent(getActivity(), DonateActivity.class);
-                        intent.putExtra("title", "Restoring purchases..");
-                        intent.setAction("restore");
-                        startActivity(intent);
-                        dialog.dismiss();
-                    }
-                })
-                .show();
-    }
+//    private void showPurchaseDialog() {
+//        MaterialDialog dialog = new MaterialDialog.Builder(getActivity())
+//                .title("Purchase")
+//                .content("This now playing style is available after a one time purchase of any amount. Support development and unlock this style?")
+//                .positiveText("Support development")
+//                .neutralText("Restore purchases")
+//                .onPositive(new MaterialDialog.SingleButtonCallback() {
+//                    @Override
+//                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+//                        startActivity(new Intent(getActivity(), DonateActivity.class));
+//                        dialog.dismiss();
+//                    }
+//                }).onNeutral(new MaterialDialog.SingleButtonCallback() {
+//                    @Override
+//                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+//                        Intent intent = new Intent(getActivity(), DonateActivity.class);
+//                        intent.putExtra("title", "Restoring purchases..");
+//                        intent.setAction("restore");
+//                        startActivity(intent);
+//                        dialog.dismiss();
+//                    }
+//                })
+//                .show();
+//    }
 
     public void setCurrentStyle() {
         String fragmentID = preferences.getString(Constants.NOWPLAYING_FRAGMENT_ID, Constants.TIMBER3);
