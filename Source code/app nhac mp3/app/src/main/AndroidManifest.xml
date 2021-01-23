@@ -5,6 +5,7 @@
 
     <uses-sdk tools:overrideLibrary="de.Maxr1998.trackselectorlib" />
 
+    <!-- Yêu cầu quyền truy cập phần cứng -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -13,11 +14,12 @@
     <uses-permission android:name="android.permission.BROADCAST_STICKY" />
     <uses-permission android:name="com.android.vending.BILLING" />
 
-
+    <!-- Thông tin cơ bản của app LND music -->
     <application
         android:name=".TimberApp"
         android:allowBackup="false"
-        android:icon="@mipmap/music_icon"
+        android:icon="@mipmap/music1_foreground"
+
         android:label="LDN Music"
         android:theme="@style/AppTheme.FullScreen.Light"
         tools:replace="android:allowBackup, android:label">
@@ -68,6 +70,8 @@
             </intent-filter>
         </activity>
 
+
+        <!-- Cài đặt -->
         <activity
             android:name=".activities.SettingsActivity"
             android:theme="@style/AppThemeNormalLight" />
@@ -84,7 +88,7 @@
             android:name=".activities.NowPlayingActivity"
             android:theme="@style/AppTheme.FullScreen.Light" />
 
-<!--        <activity android:name=".activities.DonateActivity"/>-->
+
 
         <receiver android:name=".helpers.MediaButtonIntentReceiver">
             <intent-filter>
@@ -92,7 +96,7 @@
                 <action android:name="android.media.AUDIO_BECOMING_NOISY" />
             </intent-filter>
         </receiver>
-        <!-- Music service -->
+        <!-- Dịch vụ chơi nhạc -->
         <service
             android:name=".MusicService"
             android:label="@string/app_name"
@@ -106,11 +110,12 @@
             </intent-filter>
         </service>
 
-        <!--use your own api key for fabric-->
+        <!--sử dụng fabric-->
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="@string/fabric_api_key" />
 
+        <!--tạo broadcast receiver-->
         <receiver android:name=".widgets.desktop.StandardWidget" android:label="@string/widget_standard">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />

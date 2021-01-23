@@ -1,17 +1,4 @@
-/*
- * Copyright (C) 2012 Andrew Neal
- * Copyright (C) 2014 The CyanogenMod Project
- * Copyright (C) 2015 Naman Dwivedi
- *
- * Licensed under the Apache License, Version 2.0
- * (the "License"); you may not use this file except in compliance with the
- * License. You may obtain a copy of the License at
- * http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law
- * or agreed to in writing, software distributed under the License is
- * distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the specific language
- * governing permissions and limitations under the License.
- */
+
 
 package com.naman14.timber.activities;
 
@@ -58,6 +45,7 @@ public class BaseActivity extends ATEActivity implements ServiceConnection, Musi
     private MusicPlayer.ServiceToken mToken;
     private PlaybackStatus mPlaybackStatus;
 
+      // khời tạo
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +56,7 @@ public class BaseActivity extends ATEActivity implements ServiceConnection, Musi
         //make volume keys change multimedia volume even if music is not playing now
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
     }
-
+         // Khởi tạo trình nghe nhạc
     @Override
     protected void onStart() {
         super.onStart();
@@ -101,7 +89,7 @@ public class BaseActivity extends ATEActivity implements ServiceConnection, Musi
         super.onResume();
         onMetaChanged();
     }
-
+      // kết nối dịch vụ
     @Override
     public void onServiceConnected(final ComponentName name, final IBinder service) {
         mService = ITimberService.Stub.asInterface(service);
@@ -109,7 +97,7 @@ public class BaseActivity extends ATEActivity implements ServiceConnection, Musi
         onMetaChanged();
     }
 
-
+    // ngắt kết nối dịch vụ
     @Override
     public void onServiceDisconnected(final ComponentName name) {
         mService = null;
@@ -118,7 +106,7 @@ public class BaseActivity extends ATEActivity implements ServiceConnection, Musi
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        // Unbind from the service
+
         if (mToken != null) {
             MusicPlayer.unbindFromService(mToken);
             mToken = null;
@@ -130,30 +118,29 @@ public class BaseActivity extends ATEActivity implements ServiceConnection, Musi
         }
         mMusicStateListener.clear();
     }
-
+    // cho người nghe biết về sự thay đổi
     @Override
     public void onMetaChanged() {
-        // Let the listener know to the meta chnaged
+
         for (final MusicStateListener listener : mMusicStateListener) {
             if (listener != null) {
                 listener.onMetaChanged();
             }
         }
     }
-
+   // cho người nghe biết sự cập nhật list
     @Override
     public void restartLoader() {
-        // Let the listener know to update a list
+
         for (final MusicStateListener listener : mMusicStateListener) {
             if (listener != null) {
                 listener.restartLoader();
             }
         }
     }
-
     @Override
     public void onPlaylistChanged() {
-        // Let the listener know to update a list
+
         for (final MusicStateListener listener : mMusicStateListener) {
             if (listener != null) {
                 listener.onPlaylistChanged();
@@ -176,7 +163,7 @@ public class BaseActivity extends ATEActivity implements ServiceConnection, Musi
             mMusicStateListener.remove(status);
         }
     }
-
+     // thay đổi option
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);

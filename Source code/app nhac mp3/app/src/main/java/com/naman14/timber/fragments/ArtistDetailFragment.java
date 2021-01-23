@@ -113,7 +113,7 @@ public class ArtistDetailFragment extends Fragment {
                     ImageLoader.getInstance().displayImage(artist.mArtwork.get(4).mUrl, artistArt,
                             new DisplayImageOptions.Builder().cacheInMemory(true)
                                     .cacheOnDisk(true)
-                                    .showImageOnFail(R.drawable.ic_empty_music2)
+                                    .showImageOnFail(R.mipmap.music_foreground)
                                     .build(), new SimpleImageLoadingListener() {
                                 @Override
                                 public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {

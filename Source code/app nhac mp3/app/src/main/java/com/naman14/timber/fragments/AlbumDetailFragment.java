@@ -161,7 +161,7 @@ public class AlbumDetailFragment extends Fragment {
     private void setAlbumart() {
         ImageLoader.getInstance().displayImage(TimberUtils.getAlbumArtUri(albumID).toString(), albumArt,
                 new DisplayImageOptions.Builder().cacheInMemory(true)
-                        .showImageOnFail(R.drawable.ic_empty_music2)
+                        .showImageOnFail(R.mipmap.music_foreground)
                         .resetViewBeforeLoading(true)
                         .build(), new ImageLoadingListener() {
                     @Override

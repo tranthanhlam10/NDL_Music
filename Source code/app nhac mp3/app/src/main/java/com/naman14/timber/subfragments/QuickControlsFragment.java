@@ -225,7 +225,7 @@ public class QuickControlsFragment extends Fragment implements MusicStateListene
         if (!duetoplaypause) {
             ImageLoader.getInstance().displayImage(TimberUtils.getAlbumArtUri(MusicPlayer.getCurrentAlbumId()).toString(), mAlbumArt,
                     new DisplayImageOptions.Builder().cacheInMemory(true)
-                            .showImageOnFail(R.drawable.ic_empty_music2)
+                            .showImageOnFail(R.mipmap.music_foreground)
                             .resetViewBeforeLoading(true)
                             .build(), new ImageLoadingListener() {
                         @Override
@@ -235,7 +235,7 @@ public class QuickControlsFragment extends Fragment implements MusicStateListene
 
                         @Override
                         public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
-                            Bitmap failedBitmap = ImageLoader.getInstance().loadImageSync("drawable://" + R.drawable.ic_empty_music2);
+                            Bitmap failedBitmap = ImageLoader.getInstance().loadImageSync("drawable://" + R.mipmap.music_foreground);
                             if (getActivity() != null)
                                 new setBlurredAlbumArt().execute(failedBitmap);
                         }

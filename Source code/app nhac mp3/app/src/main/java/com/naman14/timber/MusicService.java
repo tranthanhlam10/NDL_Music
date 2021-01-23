@@ -1229,7 +1229,7 @@ public class MusicService extends Service {
         artwork = ImageLoader.getInstance().loadImageSync(TimberUtils.getAlbumArtUri(getAlbumId()).toString());
 
         if (artwork == null) {
-            artwork = ImageLoader.getInstance().loadImageSync("drawable://" + R.drawable.ic_empty_music2);
+            artwork = ImageLoader.getInstance().loadImageSync("drawable://" + R.mipmap.music_foreground);
         }
 
         if (mNotificationPostTime == 0) {

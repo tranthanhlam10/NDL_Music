@@ -13,7 +13,7 @@
         android:layout_height="55dp"
         android:layout_alignParentLeft="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/ic_empty_music2" />
+        android:src="@mipmap/music_foreground" />
 
     <LinearLayout
         android:id="@+id/content"
@@ -54,7 +54,7 @@
             android:ellipsize="end"
             android:maxLength="20"
             android:maxLines="1"
-            android:text="John Doe and Band"
+            android:text="Lâm Đạt Nhựt"
             android:textSize="13sp" />
 
     </LinearLayout>
