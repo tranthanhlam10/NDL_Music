@@ -17,9 +17,7 @@ import com.naman14.timber.lastfmapi.callbacks.UserListener;
 import com.naman14.timber.lastfmapi.models.UserLoginQuery;
 import com.naman14.timber.utils.PreferencesUtility;
 
-/**
- * Created by christoph on 17.07.16.
- */
+
 public class LastFmLoginDialog extends DialogFragment {
     public static final String FRAGMENT_NAME = "LastFMLogin";
 

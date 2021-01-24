@@ -417,11 +417,11 @@ public class MusicService extends Service {
     public void onDestroy() {
         if (D) Log.d(TAG, "Destroying service");
         super.onDestroy();
-        //Try to push LastFMCache
+
         if (LastfmUserSession.getSession(this).isLogedin()) {
             LastFmClient.getInstance(this).Scrobble(null);
         }
-        // Remove any sound effects
+
         final Intent audioEffectsIntent = new Intent(
                 AudioEffect.ACTION_CLOSE_AUDIO_EFFECT_CONTROL_SESSION);
         audioEffectsIntent.putExtra(AudioEffect.EXTRA_AUDIO_SESSION, getAudioSessionId());

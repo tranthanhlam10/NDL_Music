@@ -10,9 +10,7 @@ import com.naman14.timber.R;
 import java.io.File;
 import java.io.FileFilter;
 
-/**
- * Created by nv95 on 06.12.16.
- */
+
 
 public class StorageSelectDialog implements DialogInterface.OnClickListener {
 

@@ -250,33 +250,30 @@ public class TimberUtils {
                 MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, projection, selection.toString(),
                 null, null);
         if (c != null) {
-            // Step 1: Remove selected tracks from the current playlist, as well
-            // as from the album art cache
+
             c.moveToFirst();
             while (!c.isAfterLast()) {
-                // Remove from current playlist
+
                 final long id = c.getLong(0);
                 MusicPlayer.removeTrack(id);
-                // Remove the track from the play count
+
                 SongPlayCount.getInstance(context).removeItem(id);
-                // Remove any items in the recents database
+
                 RecentStore.getInstance(context).removeItem(id);
                 c.moveToNext();
             }
 
-            // Step 2: Remove selected tracks from the database
+
             context.getContentResolver().delete(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,
                     selection.toString(), null);
 
-            // Step 3: Remove files from card
             c.moveToFirst();
             while (!c.isAfterLast()) {
                 final String name = c.getString(1);
                 final File f = new File(name);
-                try { // File.delete can throw a security exception
+                try {
                     if (!f.delete()) {
-                        // I'm not sure if we'd ever get here (deletion would
-                        // have to fail, but no exception thrown)
+
                         Log.e("MusicUtils", "Failed to delete file " + name);
                     }
                     c.moveToNext();

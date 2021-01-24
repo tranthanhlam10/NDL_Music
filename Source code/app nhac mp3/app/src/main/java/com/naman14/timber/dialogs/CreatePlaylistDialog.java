@@ -11,9 +11,7 @@ import com.naman14.timber.MusicPlayer;
 import com.naman14.timber.fragments.PlaylistFragment;
 import com.naman14.timber.models.Song;
 
-/**
- * Created by naman on 20/12/15.
- */
+
 public class CreatePlaylistDialog extends DialogFragment {
 
     public static CreatePlaylistDialog newInstance() {

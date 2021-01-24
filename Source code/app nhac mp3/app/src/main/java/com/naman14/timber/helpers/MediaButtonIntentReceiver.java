@@ -17,13 +17,7 @@ import com.naman14.timber.MusicService;
 import com.naman14.timber.activities.MainActivity;
 import com.naman14.timber.utils.PreferencesUtility;
 
-/**
- * Used to control headset playback.
- * Single press: pause/resume
- * Double press: next track
- * Triple press: previous track
- * Long press: voice search
- */
+
 public class MediaButtonIntentReceiver extends WakefulBroadcastReceiver {
     private static final boolean DEBUG = false;
     private static final String TAG = "ButtonIntentReceiver";

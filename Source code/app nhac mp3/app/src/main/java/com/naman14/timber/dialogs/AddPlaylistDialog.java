@@ -14,9 +14,7 @@ import com.naman14.timber.models.Song;
 
 import java.util.List;
 
-/**
- * Created by naman on 20/12/15.
- */
+
 public class AddPlaylistDialog extends DialogFragment {
 
     public static AddPlaylistDialog newInstance(Song song) {

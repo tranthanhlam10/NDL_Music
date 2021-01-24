@@ -117,13 +117,9 @@ public class RecentStore {
     }
 
     public interface RecentStoreColumns {
-        /* Table name */
+
         String NAME = "recenthistory";
-
-        /* Album IDs column */
         String ID = "songid";
-
-        /* Time played column */
         String TIMEPLAYED = "timeplayed";
     }
 }

@@ -28,10 +28,7 @@ public class Nammu {
         Nammu.context = context;
     }
 
-    /**
-     * Check that all given permissions have been granted by verifying that each entry in the
-     * given array is of the value {@link PackageManager#PERMISSION_GRANTED}.
-     */
+
     public static boolean verifyPermissions(int[] grantResults) {
         for (int result : grantResults) {
             if (result != PackageManager.PERMISSION_GRANTED) {
@@ -41,16 +38,11 @@ public class Nammu {
         return true;
     }
 
-    /**
-     * Returns true if the Activity has access to given permissions.
-     */
     public static boolean hasPermission(Activity activity, String permission) {
         return activity.checkSelfPermission(permission) == PackageManager.PERMISSION_GRANTED;
     }
 
-    /**
-     * Returns true if the Activity has access to a all given permission.
-     */
+
     public static boolean hasPermission(Activity activity, String[] permissions) {
         for (String permission : permissions) {
             if (activity.checkSelfPermission(permission) != PackageManager.PERMISSION_GRANTED) {
@@ -60,10 +52,7 @@ public class Nammu {
         return true;
     }
 
-    /*
-     * If we override other methods, lets do it as well, and keep name same as it is already weird enough.
-     * Returns true if we should show explanation why we need this permission.
-     */
+
     public static boolean shouldShowRequestPermissionRationale(Activity activity, String permissions) {
         return activity.shouldShowRequestPermissionRationale(permissions);
     }
@@ -103,13 +92,7 @@ public class Nammu {
     }
 
 
-    //Permission monitoring part below
 
-    /**
-     * Get list of currently granted permissions, without saving it inside Nammu
-     *
-     * @return currently granted permissions
-     */
     public static ArrayList<String> getGrantedPermissions() {
         if (context == null) {
             throw new RuntimeException("Must call init() earlier");
@@ -165,9 +148,6 @@ public class Nammu {
         return permissionsGranted;
     }
 
-    /**
-     * Refresh currently granted permission list, and save it for later comparing using @permissionCompare()
-     */
     public static void refreshMonitoredList() {
         ArrayList<String> permissions = getGrantedPermissions();
         Set<String> set = new HashSet<String>();
@@ -177,10 +157,7 @@ public class Nammu {
         sharedPreferences.edit().putStringSet(KEY_PREV_PERMISSIONS, set).apply();
     }
 
-    /**
-     * Get list of previous Permissions, from last refreshMonitoredList() call and they may be outdated,
-     * use getGrantedPermissions() to get current
-     */
+
     public static ArrayList<String> getPreviousPermissions() {
         ArrayList<String> prevPermissions = new ArrayList<String>();
         prevPermissions.addAll(sharedPreferences.getStringSet(KEY_PREV_PERMISSIONS, new HashSet<String>()));
@@ -193,9 +170,7 @@ public class Nammu {
         return ignoredPermissions;
     }
 
-    /**
-     * Lets see if we already ignore this permission
-     */
+
     public static boolean isIgnoredPermission(String permission) {
         if (permission == null) {
             return false;
@@ -203,11 +178,7 @@ public class Nammu {
         return getIgnoredPermissions().contains(permission);
     }
 
-    /**
-     * Use to ignore to particular Permission - even if user will deny or add it we won't receive a callback.
-     *
-     * @param permission Permission to ignore
-     */
+
     public static void ignorePermission(String permission) {
         if (!isIgnoredPermission(permission)) {
             ArrayList<String> ignoredPermissions = getIgnoredPermissions();
@@ -218,11 +189,7 @@ public class Nammu {
         }
     }
 
-    /**
-     * Used to trigger comparing process - @permissionListener will be called each time Permission was revoked, or added (but only once).
-     *
-     * @param permissionListener Callback that handles all permission changes
-     */
+
     public static void permissionCompare(PermissionListener permissionListener) {
         if (context == null) {
             throw new RuntimeException("Before comparing permissions you need to call Nammu.init(context)");
@@ -246,10 +213,10 @@ public class Nammu {
         }
         for (String permission : currentPermissions) {
             if (previouslyGranted.contains(permission)) {
-                //All is fine, was granted and still is
+
                 previouslyGranted.remove(permission);
             } else {
-                //We didn't have it last time
+
                 if (permissionListener != null) {
                     permissionListener.permissionsChanged(permission);
                     permissionListener.permissionsGranted(permission);
@@ -257,7 +224,7 @@ public class Nammu {
             }
         }
         if (previouslyGranted != null && !previouslyGranted.isEmpty()) {
-            //Something was granted and removed
+
             for (String permission : previouslyGranted) {
                 if (permissionListener != null) {
                     permissionListener.permissionsChanged(permission);
@@ -268,9 +235,7 @@ public class Nammu {
         refreshMonitoredList();
     }
 
-    /**
-     * Not that needed method but if we override others it is good to keep same.
-     */
+
     public static boolean checkPermission(String permissionName) {
         if (context == null) {
             throw new RuntimeException("Before comparing permissions you need to call Nammu.init(context)");

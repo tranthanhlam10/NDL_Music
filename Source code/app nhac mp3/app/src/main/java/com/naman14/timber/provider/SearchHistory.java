@@ -126,13 +126,9 @@ public class SearchHistory {
     }
 
     public interface SearchHistoryColumns {
-        /* Table name */
+
         String NAME = "searchhistory";
-
-        /* What was searched */
         String SEARCHSTRING = "searchstring";
-
-        /* Time of search */
         String TIMESEARCHED = "timesearched";
     }
 }

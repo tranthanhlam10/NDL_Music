@@ -7,11 +7,7 @@ import android.os.Parcelable;
 
 import com.naman14.timber.utils.TimberUtils;
 
-/**
- * This is used by the music playback service to track the music tracks it is playing
- * It has extra meta data to determine where the track came from so that we can show the appropriate
- * song playing indicator
- */
+
 public class MusicPlaybackTrack implements Parcelable {
 
     public static final Creator<MusicPlaybackTrack> CREATOR = new Creator<MusicPlaybackTrack>() {
