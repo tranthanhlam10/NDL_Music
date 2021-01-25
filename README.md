@@ -1,6 +1,8 @@
 # Ứng dụng nghe nhạc LND MUSIC
 ![142318255_486863316055348_8768033361551780314_n](https://user-images.githubusercontent.com/55390850/105693728-a79cb280-5f32-11eb-9f96-2ad927a17087.jpg)
 # Poster
+![140233500_2709032369408009_2527892743735748277_n](https://user-images.githubusercontent.com/55390850/105712677-b728f500-5f4c-11eb-8ef1-fcf488d2f7ac.png)
+![140493304_176474327605391_7409683111656636549_n](https://user-images.githubusercontent.com/55390850/105712733-cd36b580-5f4c-11eb-8b8b-81898f8e2929.png)
 ## Các chức năng chính của ứng dụng
 ### Nghe nhạc 
 ![141721122_240753127579555_4301104895126186364_n](https://user-images.githubusercontent.com/55390850/105693569-7623e700-5f32-11eb-822c-f64498f975e4.jpg)
